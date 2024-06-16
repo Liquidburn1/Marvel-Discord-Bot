@@ -33,7 +33,7 @@ def get_100_characters(offset,limit=100):
     ##########
     
 
-
+#some of the descriptions had html tags so I have to clean it 
 def clean_html(text):
     if pd.isna(text):
         return text
@@ -42,13 +42,13 @@ def clean_html(text):
         return BeautifulSoup(text, 'lxml').get_text()
     return text
 
-
+#gotta clean embedding
 def clean_text(text):
     if pd.isna(text):
         return text
     return fix_text(text)
 
-
+#calling both functions that clean
 def clean_data(text):
     text = clean_html(text)
     text= clean_text(text)
